@@ -10,7 +10,7 @@ var inputTopicSub = document.getElementById('input-subtopic');
 var inputTopicPub = document.getElementById('input-pubtopic');
 var inputPayload = document.getElementById('input-pubpayload');
 var message = document.getElementById('message');
-
+var broker= $('#input-broker').val();
 
 //Unclicked connect Button....
 $('#status').val("Disconnected");
@@ -28,7 +28,7 @@ btnConnect.addEventListener('click', function (e) {
   console.log("Connect Button Clicked...");
   // client = mqtt.connect("ws://broker.hivemq.com:8000/mqtt");
   //client = mqtt.connect('#input-broker'.value);
-  client = mqtt.connect(" wss://test.mosquitto.org:8081/mqtt");
+  client = mqtt.connect(broker);
   client.on("connect", function () {
     console.log("Successfully connected");
     $('#status').val("Successfully connected");
